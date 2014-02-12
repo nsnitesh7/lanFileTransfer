@@ -10,6 +10,7 @@
 #include<ctype.h>          
 #include<arpa/inet.h>
 #include<netdb.h>
+#include <unistd.h>
 #define PORT 20000 
 #define BACKLOG 5
 #define LENGTH 512 
@@ -82,8 +83,12 @@ int main ()
         	int fr_block_sz = 0;
 		    fr_block_sz = recv(nsockfd, revbuf, LENGTH, 0);
 		    printf("%s\n",revbuf);
-		    strcpy(fr_name,"/home/nitesh/Dropbox/Coding/fileTransfer/file/");
+		    system("mkdir Downloads");
+		    getcwd(fr_name, sizeof(fr_name));
 		    printf("%s\n",fr_name);
+		    strcat(fr_name,"/Downloads/");
+		    //strcpy(fr_name,"/home/nitesh/Dropbox/Coding/fileTransfer/file/");
+		    //printf("%s\n",fr_name);
 		    strcat(fr_name,revbuf);
 		    printf("%s\n",fr_name);
 	        printf("Data Received = %d\n",fr_block_sz);

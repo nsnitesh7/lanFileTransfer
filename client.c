@@ -115,7 +115,6 @@ int main(int argc, char *argv[])
     */
     //bzero(sdbuf, LENGTH);
     //i++;
-    cout<<"here\n";
     while((fs_block_sz = fread(sdbuf, sizeof(char), LENGTH, fs)) > 0) {
         
 //        printf("%s\n",sdbuf);
