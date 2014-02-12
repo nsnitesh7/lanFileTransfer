@@ -51,8 +51,13 @@ const char *SplitFilename (const string& str)
 int main(int argc, char *argv[])
 {
     /* Variable Definition */
-    
-    
+    char *fs_name=argv[1];
+    printf("[Client] Sending %s to the Server... ", fs_name);
+    FILE *fs = fopen(fs_name, "r");
+    if(fs == NULL) {
+        printf("ERROR: File %s not found.\n", fs_name);
+        exit(1);
+    }
     
     int sockfd, nsockfd;
     char revbuf[LENGTH]; 
@@ -67,7 +72,7 @@ int main(int argc, char *argv[])
     /* Fill the socket address struct */
     remote_addr.sin_family = AF_INET; 
     remote_addr.sin_port = htons(PORT); 
-    inet_pton(AF_INET, "127.0.0.1", &remote_addr.sin_addr); 
+    inet_pton(AF_INET, "172.16.27.78", &remote_addr.sin_addr); 
     //inet_pton(AF_INET, "192.168.103.179", &remote_addr.sin_addr);
     bzero(&(remote_addr.sin_zero), 8);
 
@@ -81,14 +86,9 @@ int main(int argc, char *argv[])
 
     /*send to server*/
     //char* fs_name = "/home/nitesh/Dropbox/Coding/fileTransfer/temp.txt";
-    char *fs_name=argv[1];
+    
     char sdbuf[LENGTH]; 
-    printf("[Client] Sending %s to the Server... ", fs_name);
-    FILE *fs = fopen(fs_name, "r");
-    if(fs == NULL) {
-        printf("ERROR: File %s not found.\n", fs_name);
-        exit(1);
-    }
+    
     bzero(sdbuf, LENGTH); 
     int fs_block_sz,i=0;
     

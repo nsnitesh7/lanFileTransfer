@@ -65,7 +65,7 @@ int main ()
     int flag=0;
     FILE *fr;
     char fr_name[500];
-    while(success == 0)
+    while(true)
     {
         sin_size = sizeof(struct sockaddr_in);
 
@@ -130,7 +130,8 @@ int main ()
 	        }
 	        printf("Ok received from client!\n");
 	        fclose(fr);
-		    success = 1;
+	        flag=0;
+		    //success = 1;
 		 }
     }
 }   
