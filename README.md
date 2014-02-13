@@ -9,4 +9,10 @@ Start the server using **./server**
 
 Client
 ======
-Start the sending file to server by using **./client "full address of file that you want to send"**
+Start the client file using **./client**
+
+List files on server using **ls** from client side.
+
+Upload files on server using **download "file name"**.
+
+Download files from server using **upload "file address"**.
