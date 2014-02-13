@@ -1,6 +1,6 @@
 lanFileTransfer
 ===============
-File transfer tool.
+Lan file transfer command line tool.
 
 
 Server
